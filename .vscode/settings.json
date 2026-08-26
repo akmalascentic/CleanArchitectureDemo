@@ -1,0 +1,40 @@
+{
+  "debug.toolBarLocation": "commandCenter",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.cursorStyle": "line",
+  "editor.cursorBlinking": "smooth",
+  "editor.selectionHighlight": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.wordBasedSuggestions": "off",
+  "editor.tabCompletion": "onlySnippets",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "[dart]": {
+    "editor.rulers": [
+      80
+    ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "always"
+    },
+    "editor.selectionHighlight": false,
+    "editor.suggestSelection": "first",
+    "editor.wordBasedSuggestions": "off",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "dart.devToolsLocation": {
+    "default": "external"
+  },
+  "dart.openDevTools": "always",
+  "dart.devToolsBrowser": "default",
+  "dart.previewFlutterUiGuides": true,
+  "dart.renameFilesWithClasses": "prompt",
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.warnWhenEditingFilesOutsideWorkspace": false
+}
