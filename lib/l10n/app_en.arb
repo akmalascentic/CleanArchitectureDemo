@@ -1,0 +1,33 @@
+{
+  "appName": "Library Management",
+  "bookName": "Name: {nameOfTheBook}",
+  "@bookName": {
+    "description": "Displays the name of a book.",
+    "placeholders": {
+        "nameOfTheBook": {
+            "type": "String",
+            "example": "Harry Potter"
+        }
+    }
+  },
+  "bookAuthors": "Authors: {authorsOfTheBook}",
+  "@bookAuthors": {
+    "description": "Displays the Author/Author's of the book.",
+    "placeholders": {
+        "authorsOfTheBook": {
+            "type": "String",
+            "example": "J. K. Rowling"
+        }
+    }
+  },
+  "bookIsbn": "ISBN: {isbnOfTheBook}",
+  "@bookIsbn": {
+    "description": "Displays the ISBN of a book.",
+    "placeholders": {
+        "isbnOfTheBook": {
+            "type": "String",
+            "example": "9780132350884"
+        }
+    }
+  }
+}
