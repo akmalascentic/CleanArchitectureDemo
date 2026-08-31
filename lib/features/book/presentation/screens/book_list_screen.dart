@@ -23,11 +23,7 @@ class BookListScreen extends ConsumerWidget {
             separatorBuilder: (_, index) => const SizedBox(height: 10),
             itemBuilder: (_, index) {
               final book = books[index];
-              return BookItem(
-                title: book.title,
-                author: book.author,
-                isbn: book.isbn,
-              );
+              return BookItem(book);
             },
           ),
         ),

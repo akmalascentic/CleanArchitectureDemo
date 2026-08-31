@@ -29,5 +29,15 @@
             "example": "9780132350884"
         }
     }
+  },
+  "bookYear": "Year: {yearOfPublishing}",
+  "@bookYear": {
+    "description": "Displays the year of a book.",
+    "placeholders": {
+        "yearOfPublishing": {
+            "type": "int",
+            "example": "2024"
+        }
+    }
   }
 }

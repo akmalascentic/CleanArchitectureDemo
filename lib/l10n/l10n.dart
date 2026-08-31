@@ -116,6 +116,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'ISBN: {isbnOfTheBook}'**
   String bookIsbn(String isbnOfTheBook);
+
+  /// Displays the year of a book.
+  ///
+  /// In en, this message translates to:
+  /// **'Year: {yearOfPublishing}'**
+  String bookYear(int yearOfPublishing);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

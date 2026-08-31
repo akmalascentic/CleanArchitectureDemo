@@ -26,4 +26,9 @@ class L10nEn extends L10n {
   String bookIsbn(String isbnOfTheBook) {
     return 'ISBN: $isbnOfTheBook';
   }
+
+  @override
+  String bookYear(int yearOfPublishing) {
+    return 'Year: $yearOfPublishing';
+  }
 }

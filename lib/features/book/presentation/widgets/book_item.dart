@@ -1,17 +1,11 @@
 import 'package:clean_architecture_demo/core/extensions/context_extensions.dart';
+import 'package:clean_architecture_demo/features/book/domain/entities/book.dart';
 import 'package:flutter/material.dart';
 
 class BookItem extends StatelessWidget {
-  const new({
-    super.key,
-    required this.title,
-    required this.author,
-    required this.isbn,
-  });
+  const new(this.book, {super.key});
 
-  final String title;
-  final String author;
-  final String isbn;
+  final Book book;
 
   @override
   Widget build(BuildContext context) => Card(
@@ -20,7 +14,8 @@ class BookItem extends StatelessWidget {
     shape: RoundedRectangleBorder(borderRadius: .zero),
     child: InkWell(
       onTap: () {
-        // TODO: Must implement this
+        Navigator.pushNamed(context, '/details', arguments: book);
+        // Navigator.pushNamed(context, '/details');
       },
       child: Padding(
         padding: .all(10),
@@ -34,17 +29,17 @@ class BookItem extends StatelessWidget {
                 crossAxisAlignment: .start,
                 children: [
                   Text(
-                    context.l10n.bookName(title),
+                    context.l10n.bookName(book.title),
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
 
                   _InfoLabel(
                     icon: Icon(Icons.mode_edit_outlined, size: 16),
-                    label: context.l10n.bookAuthors(author),
+                    label: context.l10n.bookAuthors(book.author),
                   ),
                   _InfoLabel(
                     icon: Icon(Icons.qr_code_2, size: 16),
-                    label: context.l10n.bookIsbn(isbn),
+                    label: context.l10n.bookIsbn(book.isbn),
                   ),
                 ],
               ),
