@@ -14,7 +14,7 @@ class BookItem extends StatelessWidget {
     shape: RoundedRectangleBorder(borderRadius: .zero),
     child: InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/details', arguments: book);
+        Navigator.pushNamed(context, '/details', arguments: book.id);
         // Navigator.pushNamed(context, '/details');
       },
       child: Padding(

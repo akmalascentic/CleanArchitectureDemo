@@ -1,4 +1,3 @@
-import 'package:clean_architecture_demo/features/book/domain/entities/book.dart';
 import 'package:clean_architecture_demo/features/book/presentation/screens/book_details_screen.dart';
 import 'package:clean_architecture_demo/features/book/presentation/screens/book_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +7,8 @@ final class RouteGenerator {
       switch (settings.name) {
         '/' => MaterialPageRoute(builder: (_) => const BookListScreen()),
         '/details' => MaterialPageRoute(
-          builder: (_) => settings.arguments is Book
-              ? BookDetailsScreen(book: settings.arguments as Book)
+          builder: (_) => settings.arguments is int
+              ? BookDetailsScreen(bookId: settings.arguments as int)
               : const _ErrorScreen(),
         ),
         _ => MaterialPageRoute(builder: (_) => const _ErrorScreen()),

@@ -1,22 +1,68 @@
-import 'package:clean_architecture_demo/core/extensions/context_extensions.dart';
-import 'package:clean_architecture_demo/features/book/domain/entities/book.dart';
+import 'package:clean_architecture_demo/features/book/presentation/providers/book_details_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BookDetailsScreen extends StatelessWidget {
-  const new({super.key, required this.book});
+import '../../../../core/extensions/context_extensions.dart';
 
-  final Book book;
+// class BookDetailsScreen extends ConsumerWidget {
+//   const new({super.key, required this.bookId});
+//
+//   final int bookId;
+//
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
+//     appBar: AppBar(),
+//     body: ref
+//         .watch(bookProvider(bookId))
+//         .when(
+//           data: (book) => Column(
+//             crossAxisAlignment: .start,
+//             children: [
+//               Text(context.l10n.bookAuthors(book.author)),
+//               Text(context.l10n.bookIsbn(book.isbn)),
+//               Text(context.l10n.bookYear(book.publishedYear)),
+//             ],
+//           ),
+//           error: (error, _) => Center(child: Text('Error: $error')),
+//           loading: () => Center(child: CircularProgressIndicator()),
+//         ),
+//   );
+// }
+
+class BookDetailsScreen extends ConsumerStatefulWidget {
+  const new({super.key, required this.bookId});
+
+  final int bookId;
 
   @override
+  ConsumerState<BookDetailsScreen> createState() => _BookDetailsScreenState();
+}
+
+class _BookDetailsScreenState extends ConsumerState<BookDetailsScreen> {
+  @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(centerTitle: true, title: Text(book.title)),
-    body: Column(
-      crossAxisAlignment: .start,
-      children: [
-        Text(context.l10n.bookAuthors(book.author)),
-        Text(context.l10n.bookIsbn(book.isbn)),
-        Text(context.l10n.bookYear(book.publishedYear)),
-      ],
-    ),
+    appBar: AppBar(),
+    body: ref
+        .watch(bookDetailsProvider(widget.bookId))
+        .when(
+          data: (book) => Column(
+            crossAxisAlignment: .start,
+            children: [
+              Text(context.l10n.bookAuthors(book.author)),
+              Text(context.l10n.bookIsbn(book.isbn)),
+              Text(context.l10n.bookYear(book.publishedYear)),
+              ElevatedButton(
+                onPressed: () {
+                  ref
+                      .read(bookDetailsProvider(widget.bookId).notifier)
+                      .mutateBook();
+                },
+                child: Text('MUTATE THE DATA'),
+              ),
+            ],
+          ),
+          error: (error, _) => Center(child: Text('Error: $error')),
+          loading: () => Center(child: CircularProgressIndicator()),
+        ),
   );
 }

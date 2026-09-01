@@ -9,6 +9,16 @@ class Book {
     required this.availableCopies,
   });
 
+  factory Book.empty() => Book(
+    id: 0,
+    title: '',
+    author: '',
+    isbn: '',
+    publishedYear: 1970,
+    totalCopies: 0,
+    availableCopies: 0,
+  );
+
   final int id;
   final String title;
   final String author;
